@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 from azureml.core.run import Run
 import argparse
 import os
+import joblib
 
 # df = pd.read_csv('nasa.csv')
 
@@ -52,7 +52,7 @@ def main():
     run.log("Random State:", np.int(args.random_state))
     model = DecisionTreeClassifier(max_depth=args.max_depth, min_samples_split=args.min_samples_split, min_impurity_decrease=args.min_impurity_decrease, random_state=args.random_state).fit(x_train, y_train)
     accuracy = model.score(x_test, y_test)
-    run.log("Accuracy:", np.float(accuracy))
+    run.log("Accuracy", np.float(accuracy))
     os.makedirs('outputs', exist_ok=True)
     joblib.dump(model, 'outputs/hyperdrive-model.joblib')
 
