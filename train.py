@@ -9,26 +9,6 @@ import argparse
 import os
 import joblib
 
-# df = pd.read_csv('nasa.csv')
-
-# df['Hazardous'] = df['Hazardous'].map({True: 1, False: 0})
-#
-# df=df.drop(columns=['Neo Reference ID', 'Name', 'Close Approach Date', 'Orbit Determination Date', 'Orbiting Body', 'Equinox'])
-# df=df.drop(columns=['Est Dia in M(min)', 'Est Dia in M(max)', 'Est Dia in Miles(min)', 'Est Dia in Miles(max)', 'Est Dia in Feet(min)', 'Est Dia in Feet(max)'])
-# df=df.drop(columns=['Relative Velocity km per hr', 'Miles per hour', 'Miss Dist.(Astronomical)', 'Miss Dist.(lunar)', 'Miss Dist.(miles)'])
-# df=df.drop(columns=['Est Dia in KM(max)'])
-
-# x = df.iloc[:, :-1].values
-# y = df.iloc[:, -1].values
-#
-# x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2 , random_state = 42)
-
-# clf = DecisionTreeClassifier()
-# clf.fit(x_train, y_train)
-# y_pred = clf.predict(x_test)
-
-# print('Accuracy =',accuracy_score(y_test, y_pred))
-
 def clean_data(df):
     df['Hazardous'] = df['Hazardous'].map({True: 1, False: 0})
 
