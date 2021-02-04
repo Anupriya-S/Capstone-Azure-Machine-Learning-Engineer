@@ -1,0 +1,4 @@
+bash swagger.sh
+python serve.py
+bash benchmark.sh
+8000
