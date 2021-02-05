@@ -9,18 +9,18 @@ For the purpose of this Capstone project, I thought of using machine learning to
 ### Overview
 The data is about Asteroids and is provided by NEOWS(Near-Earth Object Web Service). It is a NASA's dataset and can be found on Kaggle. One can download the dataset from [this](https://www.kaggle.com/shrutimehta/nasa-asteroids-classification/download) link.
 
-The dataset contains various information about the asteroids and labels each asteroid as hazardous(1) or non-hazardous(0). The dataset consists of 4687 data instances(rows) and 40 features(columns). Although we will not be using all those features beacause some of them are highly correlated. Some of those features are:
+The dataset contains various information about the asteroids and labels each asteroid as hazardous(1) or non-hazardous(0). The dataset consists of ***4687 data instances(rows) and 40 features(columns)***. Although we will not be using all those features because some of them are highly correlated. Some of those features are:
 
 1. Absolute Magnitude: An asteroid’s absolute magnitude is the visual magnitude an observer would record if the asteroid were placed 1 Astronomical Unit (AU) away, and 1 AU from the Sun and at a zero phase angle.
 2. Est Dia in KM(min): This feature denotes the estimated diameter of the asteroid in kilometres (KM).
 3. Relative Velocity km per sec: This feature denotes the relative velocity of the asteroid in kilometre per second.
-4. Jupiter Tisserand Invariant: This feature denotes the Tisserand’s parameter for the asteroid. Tisserand’s parameter (or Tisserand’s invariant) is a value calculated from several orbital elements(semi-major axis, orbital eccentricity, and inclination) of a relatively small object and a more substantial‘ perturbing body’. It is used to distinguish different kinds of orbits.
+4. Jupiter Tisserand Invariant: This feature denotes the Tisserand’s parameter for the asteroid. Tisserand’s parameter (or Tisserand’s invariant) is a value calculated from several orbital elements(semi-major axis, orbital eccentricity, and inclination) of a relatively small object and a more substantial ‘perturbing body’. It is used to distinguish different kinds of orbits.
 5. Eccentricity: The axis marked eccentricity is a measure of how far from circular each orbit is: the smaller the eccentricity number, the more circular the realm.
 
 These are only a few of the features that we are going to use.
 
 ### Task
-As mentioned earlier, the task is to classify the asteroids as hazardous(1) or non-hazardous(0). This makes it a two class classification problem. There are 40 features in this dataset but we will get rid of 18 of them because they are highly correlated. However, I will 21 of the remaining features for the training purpose and 'Hazardous' (0 or 1) will be the target column.
+As mentioned earlier, the task is to classify the asteroids as hazardous(1) or non-hazardous(0). This makes it a two class classification problem. There are 40 features in this dataset but we will get rid of 18 of them because they are highly correlated. However, I will use 21 of the remaining features for the training purpose and 'Hazardous' (0 or 1) will be the target column.
 
 ### Access
 For the purpose of this project, I downloaded this dataset and saved it in the project's GitHub repository and accessing it using [this](https://raw.githubusercontent.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/main/nasa.csv) link. Following screenshot shows the same:
@@ -83,6 +83,10 @@ In HyperDriveConfig we specified Accuracy as the primary metric and our goal is 
 Following screenshot displays the same:
 
 ![hyperdrive_config](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/hyperdrive_config.png)
+
+And we log the different values of the hyperparameters in the `train.py` file that is obvious from the following screenshot.
+
+![logging_args](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/logging_args.png)
 
 ### Results
 HyperDrive tried out following different combinations before reaching the best set of values:
@@ -170,6 +174,6 @@ I have created the documentation for the REST endpoint of our deployed service. 
 ![swagger_3](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_3.png)
 
 2. #### Benchmarking
-This step will benchmark the endpoint using Apache Benchmark (ab). `benchmark.sh` contains one line of ab. The following screenshot shows Apache Benchmark (ab) running against the HTTP API using authentication keys to retrieve performance results.
+This step will benchmark the endpoint using Apache Benchmark (ab). `benchmark.sh` contains one line of ab. The following screenshot shows Apache Benchmark (ab) running against the HTTP API to retrieve performance results.
 
 ![benchmarking](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/benchmarking.png)
