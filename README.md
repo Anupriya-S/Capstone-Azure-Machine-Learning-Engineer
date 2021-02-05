@@ -150,6 +150,8 @@ Here is the link to the screencast. This screencast demonstrate the following:
 - A working model
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
+- Standout Suggestion: Enable Application Insights dashboard
+- Additional Feature: Swagger documentation for the REST endpoint of our deployed service
 
 [Let's go to the screencast!](https://youtu.be/ZmYkM15ZQ2k)
 
