@@ -25,6 +25,8 @@ As mentioned earlier, the task is to classify the asteroids as hazardous(1) or n
 ### Access
 For the purpose of this project, I downloaded this dataset and saved it in the project's GitHub repository and accessing it using [this](https://raw.githubusercontent.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/main/nasa.csv) link. Following screenshot shows the same:
 
+![dataset_access](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/dataset_access.png)
+
 ## Automated ML
 For the AutoML run we use the following settings:
 1. Experiment timeout is set to 30 minutes because we want our AutoML run to complete in a given timeframe.
@@ -43,10 +45,20 @@ For the same AutoML run we use the following configurations:
 
 The above values can also be seen in the following screenshot:
 
+![automl_config](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/automl_config.png)
+
 ### Results
 As a result of the AutoML run we got the following models alongwith different accuracies: (a list of all the models trained by AutoML can be found as output of one of the cells in `automl.ipynb`.
+
+![automl_allmodels](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/automl_allmodels.png)
+
 Out of several models trained by AutoML **Voting Ensemble** gave the highest value of accuracy, **0.9964**. The run ID, accuracy, and the parameters of the model can be seen in the following screenshot:
+
+![automl_bestmodel](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/automl_bestmodel.png)
+
 We even used the `RunDetails` widget to monitor the run:
+
+![automl_RunDetails](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/automl_RunDetails.png)
 
 ### Future Work
 We can try following things for better results in future:
@@ -55,7 +67,6 @@ We can try following things for better results in future:
 3. In AutoMLConfig, set enable_dnn to True for exploring Deep Neural Networks too.
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 Since this a classification problem we are using Decision Tree Classifier. It is the most powerful and popular tool for classification and prediction. It can handle high dimensional data and has high accuracy in general. And because our dataset has a large number of features, that's why, Decision Tree Classifier is a good choice.
 
 For defining the parameter sampler, we used the Random Sampling method. The benefit of using Random sampling over any other method is that it picks up the parameters' values randomly that saves time, and the result is almost as good as any other method.
@@ -71,10 +82,12 @@ In HyperDriveConfig we specified Accuracy as the primary metric and our goal is 
 
 Following screenshot displays the same:
 
+![hyperdrive_config](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/hyperdrive_config.png)
+
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
-HyperDrive tried out following different combinations before reaching to the best set of values:
+HyperDrive tried out following different combinations before reaching the best set of values:
+
+![hyperdrive_allmodels](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/hyperdrive_allmodels.png)
 
 Optimal values of the hyperparameters tuned are as follows:
 1. Maximum Depth: optimal value --max_depth = 20
@@ -84,7 +97,12 @@ Optimal values of the hyperparameters tuned are as follows:
 After trying out various combinations of the hyperparameters, maximum Accuracy achieved by HyperDrive is **0.9936**.
 
 The run ID, accuracy, and the parameters of the model can be seen in the following screenshot:
+
+![hyperdrive_bestmodel](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/hyperdrive_bestmodel.png)
+
 We even used the `RunDetails` widget to monitor the run:
+
+![hyperdrive_RunDetails](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/hyperdrive_RunDetails.png)
 
 ### Future Work
 We can try following things for better results in future:
@@ -95,15 +113,33 @@ We can try following things for better results in future:
 5. And of course, a new classification algorithm with different hyperparameters can be used for the job at hand.
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 Since the AutoML found the better model we will deploy AutoML's model. To deploy this newly trained model we need to run the following piece of code as shown in the following screenshot.
+
+![model_registration](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/model_registration.png)
+![model_deployment](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/model_deployment.png)
+
 After deployment, make sure the *Deployment state* is *Healthy* in the studio.
+
+![deployed_service_1](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/deployed_service_1.png)
+
+![deployed_service_2](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/deployed_service_2.png)
+
 Now, there are two ways for testing our deployed model"
 1. #### We send an HTTP request to the web service using `requests.post()` method.
+
+![test_1](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/test_1.png)
+
 2. #### We use the `service.run()` method.
 
+![test_2](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/test_2.png)
+
 This following screenshot shows the logs generated by the deployed service.
+
+![service_logs](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/logs_output.png)
+
 Once all said and done we should delete the deployed service and the compute target to avoid unnecessary consumption of resources.
+
+![delete_service_compute](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/logs_output.png)
 
 ## Screen Recording
 Here is the link to the screencast. This screencast demonstrate the following:
@@ -117,12 +153,23 @@ Here is the link to the screencast. This screencast demonstrate the following:
 The one standout suggestion that I have attempted is to enable logging in the deployed service.
 
 I used the following line of code in the notebook to enable ***Application Insights***.
+
+![enable_app_insights](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/enable_app_insights_code.png)
+
 This is the dashboard of Application Insights which makes analysis way easier.
+
+![app_insights_dashboard](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/application_insights_dashboard.png)
 
 ## Additional Features
 Apart from the standout suggestions mentioned in the project rubrics I took the liberty to try out the following two things.
 1. #### Swagger Documentation
 I have created the documentation for the REST endpoint of our deployed service. This can be reviewed in the following screenshot.
 
+![swagger_1](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_1.png)
+![swagger_2](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_2.png)
+![swagger_3](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_3.png)
+
 2. #### Benchmarking
 This step will benchmark the endpoint using Apache Benchmark (ab). `benchmark.sh` contains one line of ab. The following screenshot shows Apache Benchmark (ab) running against the HTTP API using authentication keys to retrieve performance results.
+
+![benchmarking](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/benchmarking.png)
