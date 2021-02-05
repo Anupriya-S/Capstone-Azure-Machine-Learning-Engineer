@@ -166,14 +166,14 @@ This is the dashboard of Application Insights which makes analysis way easier.
 
 ## Additional Features
 Apart from the standout suggestions mentioned in the project rubrics I took the liberty to try out the following two things.
-1. #### Swagger Documentation
+### 1. Swagger Documentation
 I have created the documentation for the REST endpoint of our deployed service. This can be reviewed in the following screenshot.
 
 ![swagger_1](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_1.png)
 ![swagger_2](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_2.png)
 ![swagger_3](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/swagger_3.png)
 
-2. #### Benchmarking
+### 2. Benchmarking
 This step will benchmark the endpoint using Apache Benchmark (ab). `benchmark.sh` contains one line of ab. The following screenshot shows Apache Benchmark (ab) running against the HTTP API to retrieve performance results.
 
 ![benchmarking](https://github.com/Anupriya-S/Capstone-Azure-Machine-Learning-Engineer/blob/main/screenshots/benchmarking.png)
